@@ -1,0 +1,8 @@
+# twscrape[curl] pulls curl_cffi (browser-TLS impersonation). The plain httpx
+# backend uses a 5s connect timeout that fails reaching x.com from many hosts,
+# so the curl backend is effectively required — see TWS_HTTP_BACKEND in .env.
+twscrape[curl]>=0.13
+h2>=4.1
+web3>=6.15
+httpx>=0.27
+python-dotenv>=1.0

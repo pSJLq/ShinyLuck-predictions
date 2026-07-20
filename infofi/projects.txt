@@ -1,0 +1,11 @@
+# Somnia ecosystem accounts to track daily (one handle per line).
+# Projects are measured on ALL their own posts in the window.
+Somnia_Network
+dreamdexsomnia
+prophecysocial_
+somniaeco
+SomniaYappers
+ShinyLuck_
+onirya_xyz
+SomniaDevs
+accuracy_wtf

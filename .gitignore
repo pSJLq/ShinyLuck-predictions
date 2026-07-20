@@ -1,0 +1,14 @@
+node_modules/
+.env
+cache/
+artifacts/
+coverage/
+coverage.json
+typechain-types/
+oracle/.env
+oracle/cookies*
+oracle/accounts.db
+oracle/accounts.secret.txt
+oracle/*.secret*
+deployments/*.local.json
+HANDOFF-MVP.md

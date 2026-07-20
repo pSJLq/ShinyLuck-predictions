@@ -1,0 +1,9 @@
+# Ecosystem context tags. A tweet counts toward the "voices" board only when
+# it mentions at least one of these handles - that is what scopes the measure
+# to THIS Somnia, not the word "somnia" at large.
+Somnia_Network
+dreamdexsomnia
+prophecysocial_
+0xpaulthomas
+somniaeco
+SomniaYappers

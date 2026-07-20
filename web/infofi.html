@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShinyLuck InfoFi - Somnia mindshare</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* page-local: Kaito-style mindshare treemap in the v2 tokens */
+    .if-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+    .if-meta { font-family: var(--mono); font-size: 11px; color: var(--fg-faint); }
+    #tmap { width: 100%; display: block; border-radius: 14px; }
+    .tile { cursor: pointer; }
+    .tile rect { rx: 10; stroke: var(--bg); stroke-width: 3; transition: opacity .15s; }
+    .tile:hover rect { opacity: .85; }
+    .tl-name { font-weight: 700; fill: var(--fg-strong); }
+    .tl-share { font-family: var(--mono); fill: var(--fg-dim); }
+    .tl-rank { font-weight: 800; fill: var(--gold-hi); }
+    .tl-kind { font-family: var(--mono); font-size: 9px; fill: var(--fg-mute); letter-spacing: .1em; }
+    .if-tip {
+      position: fixed; display: none; z-index: 40; min-width: 210px; pointer-events: none;
+      background: var(--panel-3); border: 1px solid var(--bd-2); border-radius: 12px;
+      padding: 10px 12px; font-size: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.55);
+    }
+    .if-tip b { color: var(--gold-hi); }
+    .if-tip .row { display: flex; justify-content: space-between; gap: 14px; padding: 1.5px 0; color: var(--fg-dim); }
+    .if-tip .row span:last-child { font-family: var(--mono); color: var(--fg); }
+    .if-scroll { overflow-x: auto; margin-top: 18px; }
+    table.if { width: 100%; min-width: 860px; border-collapse: collapse; font-size: 12.5px; }
+    table.if th { text-align: right; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-faint); padding: 8px 10px; border-bottom: 1px solid var(--line-3); }
+    table.if th:first-child, table.if td:first-child { text-align: left; }
+    table.if td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; font-family: var(--mono); color: var(--fg-dim); }
+    table.if td.acc { font-family: var(--sans); color: var(--fg); font-weight: 600; }
+    table.if td.acc .h { color: var(--fg-mute); font-weight: 400; font-size: 11px; margin-left: 6px; }
+    table.if tr:hover td { background: rgba(217,185,112,.03); }
+    .kbadge { font-size: 9px; font-family: var(--mono); letter-spacing: .1em; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--bd-2); margin-left: 8px; vertical-align: middle; }
+    .kbadge.project { color: var(--gold-mid); border-color: var(--gold-dark); }
+    .kbadge.voice { color: var(--green); border-color: rgba(111,207,151,.4); }
+    .if-note { margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><b>ShinyLuck</b><span>InfoFi</span></div>
+      <div class="wallet"><a class="pill" href="predictions.html">← Predictions</a></div>
+    </header>
+
+    <div class="if-head">
+      <div class="section-title">Somnia mindshare · who owns the bubble's attention on X</div>
+      <div class="if-meta" id="ifMeta">loading…</div>
+    </div>
+
+    <svg id="tmap" height="460"></svg>
+    <div class="if-tip" id="ifTip"></div>
+
+    <div class="if-scroll">
+    <table class="if" id="ifTable" style="display:none">
+      <thead><tr>
+        <th>Account</th><th>Posts</th><th>Comments</th><th>Likes</th><th>Reposts</th>
+        <th>Replies</th><th>Bookmarks</th><th>Views</th><th>Score</th><th>Share</th>
+      </tr></thead>
+      <tbody id="ifRows"></tbody>
+    </table>
+    </div>
+
+    <div class="hint if-note" id="ifNote"></div>
+  </div>
+
+  <script src="infofi.js"></script>
+</body>
+</html>

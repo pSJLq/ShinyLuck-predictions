@@ -1,0 +1,21 @@
+{
+  "name": "shinyluck-predictions",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ShinyLuck Predictions - social prediction markets on X events, resolved by Somnia on-chain agents",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "clean": "hardhat clean",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network somniaTestnet",
+    "keeper": "node scripts/keeper.js",
+    "dev:frontend": "node scripts/dev-frontend.js"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

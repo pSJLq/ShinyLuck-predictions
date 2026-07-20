@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShinyLuck Predictions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <b>ShinyLuck</b><span>Predictions</span>
+      </div>
+      <div class="wallet">
+        <span class="pill" id="netPill">connecting…</span>
+        <span class="pill" id="balPill" style="display:none"></span>
+        <button class="gold" id="connectBtn">Connect</button>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button data-tab="markets" class="on">Markets</button>
+      <button data-tab="create">Create market</button>
+    </div>
+
+    <!-- MARKETS -->
+    <section id="tab-markets">
+      <div class="section-title">Prediction markets on X events · resolved by Somnia agents</div>
+      <div class="mgrid" id="marketList"><div class="empty">Loading markets…</div></div>
+    </section>
+
+    <!-- MARKET DETAIL -->
+    <section id="tab-detail" style="display:none">
+      <button class="ghost back" id="backBtn">&larr; All markets</button>
+      <div class="detail-grid">
+        <div class="card detail-main">
+          <div class="qrow">
+            <h2 id="dQuestion"></h2>
+            <span class="badge" id="dBadge"></span>
+          </div>
+          <div class="meta" id="dMeta"></div>
+          <div class="chart-box">
+            <div class="chart-legend" id="dLegend"></div>
+            <div class="chart-wrap" id="dChartWrap">
+              <svg id="dChart" width="100%" height="240"></svg>
+              <div class="chart-tip" id="dTip" style="display:none"></div>
+            </div>
+          </div>
+          <div class="outcomes" id="dOutcomes"></div>
+          <div class="resolution" id="dResolution"></div>
+          <div class="foot" id="dFoot"></div>
+        </div>
+        <aside class="card trade" id="dTrade"></aside>
+      </div>
+    </section>
+
+    <!-- CREATE -->
+    <section id="tab-create" style="display:none">
+      <div class="card">
+        <form class="create" id="createForm">
+          <label>Template
+            <select id="fTemplate">
+              <option value="0">Tweet metric (likes / RT) — 2 JSON votes</option>
+              <option value="1">Followers ≥ N — JSON + page parse</option>
+              <option value="2">Posts on a day — JSON + page parse</option>
+              <option value="3">Freeform (any question) — 3 LLM votes</option>
+              <option value="4">Race (who wins the metric) — oracle + per-contender votes</option>
+            </select>
+          </label>
+          <label>Question
+            <textarea id="fQuestion" placeholder="Will @elonmusk post 10+ times on 2026-07-17 (UTC)?"></textarea>
+          </label>
+          <label id="outcomesLabel">Outcome labels (comma-separated, 2–8)
+            <input id="fOutcomes" value="NO, YES" />
+          </label>
+
+          <div id="raceBlock" style="display:none">
+            <div class="section-title">Contenders (2–7) · empty selector = LLM page-parse of the URL</div>
+            <div id="raceRows"></div>
+            <button type="button" id="raceAdd" class="ghost">+ add contender</button>
+            <div class="two">
+              <label>Fallback outcome label (required — wins on tie / below threshold)
+                <input id="fRaceFallback" value="nobody/tie" />
+              </label>
+              <label>Winning threshold (0 = pure argmax)
+                <input id="fRaceThreshold" type="number" min="0" step="1" value="0" />
+              </label>
+            </div>
+          </div>
+          <div class="two">
+            <label>Betting closes (local time)
+              <input id="fClose" type="datetime-local" />
+            </label>
+            <label>Resolve deadline (local time)
+              <input id="fDeadline" type="datetime-local" />
+            </label>
+          </div>
+
+          <div id="primaryBlock">
+            <div class="two">
+              <label>Primary source URL (JSON)
+                <input id="fPrimaryUrl" placeholder="3.json  (relative → oracle base) or https://…" />
+              </label>
+              <label>Primary JSONPath selector
+                <input id="fPrimarySel" placeholder="value" value="value" />
+              </label>
+            </div>
+          </div>
+          <div id="numericBlock">
+            <div class="two">
+              <label>Secondary source URL
+                <input id="fSecUrl" placeholder="https://cdn.syndication.twimg.com/… or https://x.com/user" />
+              </label>
+              <label>Secondary selector (JSON votes only)
+                <input id="fSecSel" placeholder="value" value="value" />
+              </label>
+            </div>
+            <label>Bucket bounds (comma-separated, ascending; count = outcomes − 1)
+              <input id="fBounds" placeholder="9  (e.g. NO if value ≤ 9, else YES)" />
+            </label>
+          </div>
+
+          <label>Resolution criteria / extraction prompt
+            <textarea id="fCriteria" placeholder="Number of posts authored by @elonmusk dated 2026-07-17 UTC. Report the integer count."></textarea>
+          </label>
+
+          <div class="hint" id="createHint"></div>
+          <button class="gold" type="submit" id="createBtn">Create market · <span id="feeLabel"></span></button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="vendor/ethers.umd.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

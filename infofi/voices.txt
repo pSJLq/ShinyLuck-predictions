@@ -1,0 +1,30 @@
+# Curated voices - community members measured DIRECTLY from their timelines
+# (X search is lossy for small accounts, so listed voices never get missed
+# and no score floor applies). Only their ecosystem-tagged activity counts:
+# posts/quotes mentioning a tag, replies under tag accounts' posts.
+ShinyViq
+djaikoku
+vasyl_khlibko
+onirya_xyz
+m7x2020
+carlxbt
+MogiwaraD
+fair005_Art
+dmitrysssss
+JusthappySergio
+lovaniceth
+TrastewETH
+MarcoSimonetti8
+bmaplmj
+Steeven_Rogers
+Ravstar11
+JundoHud
+tuyendevt
+vothaithinh102
+Rootless999
+RonaldoMen4691
+CharlesXplus
+PopeyeTrades
+HoangTrungDS
+aminsh7676
+CryptoLorenzo2k
