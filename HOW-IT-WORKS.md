@@ -107,8 +107,7 @@ This was hardened deliberately, and it is visible in the contract source:
 
 What still requires trust, stated plainly: the curator picks the sources when
 creating a market (they are visible on-chain **before** you bet), and for
-login-gated data our oracle is the single reader. Both are the same trade-offs
-Prophecy and every other X-data market makes — we just label them.
+login-gated data our oracle is the single reader.
 
 ---
 
