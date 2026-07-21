@@ -1,4 +1,4 @@
-# ShinyLuck Predictions — how a market actually resolves
+<img width="1189" height="566" alt="image" src="https://github.com/user-attachments/assets/1135b683-c7c3-4357-9a68-357c82ad2dc5" /># ShinyLuck Predictions — how a market actually resolves
 
 Prediction markets on **X (Twitter) events**, settled in real STT on **Somnia**,
 resolved by **Somnia's on-chain agents**. Live at
@@ -179,6 +179,10 @@ Two boards, scored on deliberately different surfaces:
 engagement = likes + 2×(reposts+quotes) + 1.5×replies_received + 2×bookmarks
 share      = engagement / total engagement of the board
 ```
+
+It usually looks like this, I'm just redoing it a little differently now.
+<img width="1189" height="566" alt="image" src="https://github.com/user-attachments/assets/df1c4f3f-1c82-4a22-b578-4aa9f988954e" />
+
 
 Two decisions worth calling out, because both were bugs we found and fixed:
 
